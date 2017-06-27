@@ -10,10 +10,13 @@
     "koa": "^2.3.0",
     "lodash": "^4.17.4",
     "lodash-es": "^4.17.4",
+    "moment": "^2.18.1",
+    "pg": "^6.4.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "redux": "^3.7.1",
     "rxjs": "^5.4.1",
+    "simplemde": "^1.11.2",
     "stripe": "^4.23.1"
   },
   "devDependencies": {
