@@ -1,6 +1,7 @@
 import koa from 'koa';
 import route from 'koa-route';
 import views from 'koa-views';
+import {dbQuery, dbConnect} from './server/db';
 const app = new koa();
 
 app.use(views(`${__dirname}/server/views`, { extension: 'pug' }))
@@ -29,6 +30,15 @@ const products = {
 app.use(route.get('/products', products.list));
 app.use(route.get('/products/:name', products.show));
 app.use(route.get('/about', (ctx) => {
+
+  dbQuery('SELECT * from campaign', null, function(err, res) {
+    if(err) {
+      return console.error('error running query', err);
+    }
+
+    console.log('result:', res.rows[0]);
+  });
+
   ctx.body = 'about this site';
 }));
 
@@ -36,7 +46,7 @@ app.use(async function (ctx) {
   ctx.state = {
     youAreUsingPug: true,
   };
-  
+
   await ctx.render('home')
 })
 
