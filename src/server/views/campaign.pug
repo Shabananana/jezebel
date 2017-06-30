@@ -1,25 +1,23 @@
-doctype html
-html(lang="en")
-  head
-    title= pageTitle
-  body
-    h1 Selected Campaign
-    #container.col
-      div
-        if campaign
-          strong Description
-          span= campaign.description
-          br
-          strong ID
-          span= campaign.id
-          br
-          strong Start Date
-          span= campaign.start_date
-          br
-          strong End Date
-          span= campaign.end_date
-          br
-          strong Remaining Stock
-          span= campaign.remaining_stock
-        else
-          strong There was an error; the campaign you requested could not be found.
+extends layout.pug
+
+block content
+  h1 Selected Campaign
+  #container.col
+    div
+      if campaign
+        strong Description
+        span= campaign.description
+        br
+        strong ID
+        span= campaign.id
+        br
+        strong Start Date
+        span= campaign.start_date
+        br
+        strong End Date
+        span= campaign.end_date
+        br
+        strong Remaining Stock
+        span= campaign.remaining_stock
+      else
+        strong There was an error; the campaign you requested could not be found.

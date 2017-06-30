@@ -17,13 +17,13 @@ router
 
     await context.render('campaignList');
   })
-  .get('/campaigns/add', async(context) => {
+  .post('/campaigns/add', async(context) => {
     const query = 'INSERT INTO campaign (description, start_date, end_date, remaining_stock) VALUES($1, $2, $3, $4)';
     const values = ['I am another test campaign', '2018-06-27', '2018-07-12', 50];
     await pool.query(query, values)
       .catch(e => console.error(e.stack));
 
-    await context.redirect('/campaigns');
+    context.body = {success: true};
   })
   .get('/campaigns/:id', async(context) => {
     const {id} = context.params;
