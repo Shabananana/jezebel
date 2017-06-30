@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+  body
+    h1 Active Campaigns
+    #container.col
+      table
+        thead
+          th ID
+          th Description
+          th Start Date
+          th End Date
+          th Remaining Stock
+        tbody
+          if campaigns.length
+            each campaign in campaigns
+              tr
+                td= campaign.id
+                td= campaign.description
+                td= campaign.start_date
+                td= campaign.end_date
+                td= campaign.remaining_stock
+          else 
+            tr
+              td There are no active campaigns!
